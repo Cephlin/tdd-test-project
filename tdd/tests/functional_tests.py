@@ -10,40 +10,40 @@ class NewVisitorTest(unittest.TestCase):
 
     def setUp(self):
         self.browser = webdriver.Chrome()
+        self.browser.implicitly_wait(3)
 
     def tearDown(self):
         self.browser.quit()
 
-browser = webdriver.Chrome()
-    #"C:\\Users\\DICK BUTT\\Projects\\Programming\\tdd\\tdd\\tests\\chromedriver.exe")
+    def test_can_start_a_list_and_retrieve_it_later(self):
+            # Laura has found a cool new to-do list web-app so she visits the
+        # homepage
+        self.browser.get('http://localhost:8000')
+        self.assertIn('To-Do', self.browser.title)
+        self.fail('Finish the test!')
 
-# Laura has found a cool new to-do list web-app so she visits the
-# homepage
-browser.get('http://localhost:8000')
-assert 'To-Do' in browser.title
-
-# She can enter a new item to the list straight away
-
-
-# She enters "Eat pizza" into the textbox
+        # She can enter a new item to the list straight away
 
 
-# When she hits enter, the page updates with the first item in the TODO list.
-# It lists "1: Eat pizza" as the first item.
+        # She enters "Eat pizza" into the textbox
 
 
-# She can still add new items via a text box so she enters "Clean up after pizza"
+        # When she hits enter, the page updates with the first item in the TODO list.
+        # It lists "1: Eat pizza" as the first item.
 
 
-# The page is updated to show both entries on the screen with the new one being
-# second.
+        # She can still add new items via a text box so she enters "Clean up after pizza"
 
 
-# She wants to save the list for future and notices that the site has created
-# a unique link with a brief explanation.
+        # The page is updated to show both entries on the screen with the new one being
+        # second.
 
 
-# She tries out the URL just to be sure it works and it does
+        # She wants to save the list for future and notices that the site has created
+        # a unique link with a brief explanation.
 
 
-browser.quit()
+        # She tries out the URL just to be sure it works and it does
+
+if __name__ == '__main__':
+    unittest.main(warnings='ignore')
