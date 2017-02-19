@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+import todo_lists
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^$', todo_lists.views.homepage, name='home'),
+    # url(r'^admin/', admin.site.urls),
 ]
