@@ -21,9 +21,9 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.get('http://localhost:8000')
 
         # She notices the title and the header
-        self.assertIn('TODO', self.browser.title)
+        self.assertIn('ToDo', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('TODO', header_text)
+        self.assertIn('ToDo', header_text)
 
         # She can enter a new item to the list straight away
         inputbox = self.browser.find_element_by_id('id_new_item')
@@ -44,7 +44,6 @@ class NewVisitorTest(unittest.TestCase):
         self.assertTrue(
             any(row.text == '1: Eat pizza' for row in rows)
         )
-
 
         # She can still add new items via a text box so she enters "Clean up after pizza"
         self.fail("Finish the test!")
