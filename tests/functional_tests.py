@@ -20,7 +20,7 @@ class NewVisitorTest(unittest.TestCase):
         self.user_notices_the_title_and_header()
 
         inputbox = self.she_can_enter_a_new_item_in_the_list_straight_away()
-        # self.she_enters_eat_pizza_into_the_textbox(inputbox)
+        self.she_enters_eat_pizza_into_the_textbox(inputbox)
         # self.pressing_enter_updates_the_todo_list_with_first_item(inputbox)
 
         # She can still add new items via a text box so she enters "Clean up
@@ -36,25 +36,31 @@ class NewVisitorTest(unittest.TestCase):
         # She tries out the URL just to be sure it works and it does
 
     def a_new_user_visits_the_homepage(self):
+
         self.browser.get('http://localhost:8000')
 
     def user_notices_the_title_and_header(self):
+
         self.assertIn('To-Do', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
         self.assertIn('To-Do', header_text)
 
     def she_can_enter_a_new_item_in_the_list_straight_away(self):
+
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertEqual(
             inputbox.get_attribute('placeholder'),
             'Enter a to-do item'
         )
+
         return inputbox
 
     def she_enters_eat_pizza_into_the_textbox(self, inputbox):
+
         inputbox.send_keys('Eat pizza')
 
     def pressing_enter_updates_the_todo_list_with_first_item(self, inputbox):
+
         inputbox.send_keys(Keys.ENTER)
 
         table = self.browser.find_element_by_id('id_list_table')

@@ -1,3 +1,4 @@
+# pylint: disable=C0111
 from django.core.urlresolvers import resolve
 from django.test import TestCase
 from django.http import HttpRequest
@@ -8,6 +9,7 @@ from todo_lists.views import homepage
 
 class HomePageTest(TestCase):
 
+    # pylint: disable=C0103
     def test_root_url_resolves_to_homepage_view(self):
         found = resolve('/')
         self.assertEqual(found.func, homepage)
