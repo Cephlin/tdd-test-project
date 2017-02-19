@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-import todo_lists
+from todo_lists.views import homepage
+
 
 urlpatterns = [
-    url(r'^$', todo_lists.views.homepage, name='home'),
+    url(r'^$', homepage, name='home'),
     # url(r'^admin/', admin.site.urls),
 ]
